@@ -26,3 +26,9 @@ rl.on('line', (input) => {
 rl.on('close', () => {
   console.log('Your input has been saved to "output.txt".');
 });
+
+process.on('SIGINT', () => {
+  console.log('\nGoodbye!');
+  rl.close();
+  fileStream.end();
+});
